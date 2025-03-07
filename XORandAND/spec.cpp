@@ -70,6 +70,14 @@ protected:
     }
 
     void TestCases() {
+        for (int i = 0; i < 20; i++) {
+            CASE(N = rnd.nextInt(10, 15),
+                    Q = rnd.nextInt(5, 100),
+                    randomArray(N, A, 1, (1 << 14) - 1),
+                    randomArray(N, B, 1, (1 << 15) - 1),
+                    randomArray(Q, X, 1, (1 << 14) - 1)
+                );
+        }
         for (int i = 0; i < 5; i++) {
             CASE(N = rnd.nextInt(5, 100),
                     Q = rnd.nextInt(5, 100),
