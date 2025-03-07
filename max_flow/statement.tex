@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{[Cadangan] - [Max Flow?]}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{[Cadangan] - [Max Flow?]} % ganti judul soal
+    Batas Waktu : 2s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Pada acaca ramadhan, diadakan sebuah festival kurma, dimana pengunjung dapat mendapatkan kurma secara gratis. Untuk memeriahkan festival, terdapat mekanisme unik untuk mengambil kurma.
+
+Terdapat $N$ buah toples kurma disusun secara menyamping, dimana tiap toples tersebut memiliki kapasitas $10^{100}$ kurma, akan tetapi toples ke-$i$ hanya diisi $C_i$ buah kurma. Ketika anda RSVP untuk hadir pada acara festival ini, anda akan mendapatkan $D$ buah tiket. Pada tiket ke-$j$ tersebut, bertuliskan $l_i$, $r_i$, $v_i$. Yang berarti, anda hanya boleh mengakses toples bernomor $l_i$, $l_i+1$, $l_i+2$, ..., $r_i$. Selain itu, banyaknya kurma yang bisa anda tukarkan dengan tiket tersebut tidak boleh melebihi $v_i$. Anda menyadari bahwa tidak ada larangan untuk memindahkan kurma dari toples satu ke toples lainnya, selama toples-toples tersebut adalah toples yang bisa anda akses. 
+
+Dengan menggunakan cara yang optimal, tentukan berapa banyak total kurma yang bisa anda dapatkan.
+\subsection*{Format Masukan}
+
+Baris pertama berisi 2 buah bilangan $N, D$ ($1 \leq N, D \leq 10^5$), yang menyatakan banyaknya toples kurma serta banyaknya tiket yang anda dapatkan \textit{mana stone}. 
+
+Baris berikutnya adalah $C_1, C_2, C_3, \dots, C_N$, yaitu banyaknya kurma pada masing masing toples.
+
+D baris berikutnya berisi 3 buah bilangan $l_i, r_i, v_i$ ($1 \leq l_i \leq r_i \leq N, 1 \leq v_i \leq 10^9$) yaitu kurma-kurma yang bisa anda akses serta banyak kurma yang bisa anda tukarkan dengan tiket ke-$i$.
+
+\subsection*{Format Keluaran}
+Keluarkan sebuah bilangan yang menyatakan total kurma maksimal yang bisa didapatkan.
+
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+4 4
+5 4 3 2
+1 2 4
+1 1 3
+2 4 1
+3 3 4
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+12
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\subsection*{Penjelasan}
+Pada penukaran tiket 1, anda dapat mengambil 2 buah kurma dari toples 1, dan 2 buah kurma dari toples 2. Sehingga kurma pada toples setelah pengambilan menjadi $[3, 2, 3, 2]$
+
+Pada penukaran tiket 2, anda dapat mengambil 3 buah kurma dari toples 1. Sehingga kurma pada toples setelah pengambilan menjadi $0, 2, 3, 2$
+
+Pada penukaran tiket 3, anda dapat mengambil 1 buah kurma pada toples 3, kemudian memindahkan semua kurma pada toples ke-2 dan ke-4 menuju ke toples 3. Sehingga kurma pada toples setelah pengambilan menjadi $[0, 0, 6, 0]$
+
+Pada penukaran tiket 4, anda dapat mengambil 4 buah kurma pada toples ke-3. Sehingga kurma pada toples setelah pengambilan menjadi $[0, 0, 2, 0]$
+
+Sehingga total kurma yang anda dapat adalah 4 + 3 + 1 + 4 = 12
+
+\end{document}

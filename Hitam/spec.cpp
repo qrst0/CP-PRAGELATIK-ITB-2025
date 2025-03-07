@@ -25,7 +25,7 @@ protected:
     }
 
     void Constraints() {
-        CONS(1 <= N && N <= 1e5);
+        CONS(1 <= N && N <= 5e5);
         CONS(arrcons(a, N));
         CONS(arrcons(b, N));
     }
