@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{H - Hitam}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{H - \textbf{Hitam}} % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Ciran dan Miris sedang bermain di suatu festival. Di dekat arena permainan, terdapat $N$ buah kotak. Di dalam kotak ke-$i$, terdapat $A_i$ bola putih dan $B_i$ bola \textbf{hitam}. Ketika Miris selesai bermain, Miris akan mengambil satu bola dari kotak ke-$N$. Jika Miris mendapatkan bola \textbf{hitam}, Miris akan mendapatkan hadiah. 
+
+Ketika Miris sedang bermain, Ciran menyelinap ke tempat kotak-kotak tersebut berada, dengan keinginan untuk memperbesar peluang Miris mendapatkan bola \textbf{hitam} nantinya. Untuk setiap kotak (kecuali kotak terakhir), Ciran akan mengambil tepat 1 bola, lalu memindahkannya ke kotak di kanannya. Secara formal, Ciran akan mengambil tepat 1 bola pada kotak ke-$i$, lalu memindahkannya ke kotak ke-$i+1$. 
+
+Namun, Ciran hanya mengetahui jumlah bola putih dan jumlah bola \textbf{hitam} pada suatu kotak. Ketika mengambil bola, Ia tidak dapat melihat warna dari bola tersebut karena buru-buru memindahkannya, agar tidak ketahuan. Setelah semua pemindahan dilakukan, Miris akan mengambil 1 bola dari kotak terakhir (kotak ke-$N$).
+
+Jika Ciran bebas memilih urutan pemindahan bola, misalnya memindahkan bola dari kotak ke‑$3$ ke kotak ke‑$4$ terlebih dahulu, lalu dari kotak ke‑$2$ ke kotak ke‑$3$, tentukan peluang harapan maksimum bahwa bola yang diambil dari kotak ke-$N$ adalah bola \textbf{hitam}!
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri atas sebuah bilangan bulat positif yaitu $N$, ($1 \leq N \leq 10^6$) yang menyatakan jumlah kotak.
+
+Baris berikutnya terdiri atas $N$ buah angka $A_{i}$ ($0 \leq A_{i} \leq 10^9$) yang menandakan jumlah bola putih pada kotak ke-$i$.
+
+Baris berikutnya terdiri atas $N$ buah angka $B_{i}$ ($0 \leq B_{i} \leq 10^9$) yang menandakan jumlah bola \textbf{hitam} pada kotak ke-$i$.
+
+\subsection*{Format Keluaran}
+
+Peluang harapan maksimum terambilnya bola \textbf{hitam} dari kotak ke-$N$. Jawaban dianggap benar jika memiliki error absolut atau relatif kurang dari $10^6$.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+2
+2 3
+5 5
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+0.634921
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+\end{document}
