@@ -1,0 +1,120 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{I - Iyan}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{I - Iyan } % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Iyan adalah seorang ratu pada suatu kota di sebuah kerajaan. Pada kerajaan ini, kekuatan dari suatu kota diukur dari kecantikan pasukan yang dimiliki oleh ratu. Iyan memiliki $N$ buah pasukan, pasukan ke-$i$ memiliki kecantikan sebesar $A_i$ (Perhatikan bahwa $A_i$ dapat bernilai negatif).
+
+Karena Iyan adalah ratu yang penuh dengan ego, ia ingin menambahkan kecantikan pasukan-pasukannya agar dapat menjadi kota tercantik pada kerajaan. Namun, karena Iyan juga ceroboh, terkadang ia tidak sengaja malah mengurangi kecantikan pasukan-pasukannya.
+
+Iyan akan memberikan $Q$ buah perintah. Terdapat 2 jenis perintah yang akan diberikan Iyan. Yang pertama, Iyan akan memberikan perintah untuk menambahkan kecantikan sebesar $K$ pada seluruh pasukan dengan kecantikan $X$. Yang kedua, karena Iyan juga pelupa, ia ingin mengetahui kecantikan pasukan ke-$i$ saat ini.
+
+Secara formal, terdapat 2 jenis perintah yang akan diberikan Iyan:
+\begin{itemize}
+    \item $1$ $X$ $K$ : Menambahkan kecantikan sebesar $K$ pada seluruh pasukan dengan kecantikan $X$.
+    \item $2$ $i$ : Menampilkan kecantikan pasukan ke-$i$ ($A_i$) saat ini.
+\end{itemize}
+
+\subsection*{Format Masukan}
+
+Baris pertama berisi dua bilangan bulat positif $N$ dan $Q$ ($1 \leq N, Q \leq 10^5$) yang menyatakan banyaknya pasukan yang dimiliki Iyan dan banyaknya perintah yang akan diberikan Iyan.
+
+Baris kedua berisi $N$ buah bilangan bulat $A_1, A_2, \dots, A_N$ ($-10^5 \leq A_i \leq 10^5$) yang menyatakan kecantikan pasukan ke-$i$.
+
+$Q$ baris berikutnya berisi salah satu dari dua jenis perintah yang akan diberikan Iyan sebagai berikut:
+\begin{itemize}
+    \item $1$ $X$ $K$ ($-10^{12} \leq X \leq 10^{12}$, $-10^5 \leq K \leq 10^5$) yang menyatakan perintah untuk menambahkan kecantikan sebesar $K$ pada seluruh pasukan dengan kecantikan $X$.
+    \item $2$ $i$ ($1 \leq i \leq N$) yang menyatakan perintah untuk menampilkan kecantikan pasukan ke-$i$ saat ini.
+\end{itemize}
+
+\subsection*{Format Keluaran}
+
+Untuk setiap perintah jenis kedua, keluarkan kecantikan pasukan ke-$i$ saat ini.
+\\
+\pagebreak
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+5 5  
+2 3 2 4 3  
+1 2 2  
+2 1  
+1 4 5  
+2 3  
+2 2  
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+4
+9
+3
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Kecantikan awal pasukan adalah $[2, 3, 2, 4, 3]$. Kemudian, Iyan memberikan perintah secara berurutan:
+\begin{enumerate}
+    \item Ubah seluruh pasukan dengan kecantikan $2$ menjadi $2+2=4$. Maka, kecantikan pasukan menjadi $[4, 3, 4, 4, 3]$.
+    \item Tampilkan kecantikan pasukan ke-$1$. Kecantikan pasukan ke-$1$ adalah $4$.
+    \item Ubah seluruh pasukan dengan kecantikan $4$ menjadi $4+5=9$. Maka, kecantikan pasukan menjadi $[9, 3, 9, 9, 3]$.
+    \item Tampilkan kecantikan pasukan ke-$3$. Kecantikan pasukan ke-$3$ adalah $9$.
+    \item Tampilkan kecantikan pasukan ke-$2$. Kecantikan pasukan ke-$2$ adalah $3$.
+\end{enumerate}
+
+%
+%\subsection*{Penjelasan}
+%Subsection ini bersifat \textbf{opsional}. %Gunakan subsection ini jika problem dirasa %cukup kompleks atau ketika contoh yang %diberikan dirasa kurang jelas.
+%
+
+\end{document}
