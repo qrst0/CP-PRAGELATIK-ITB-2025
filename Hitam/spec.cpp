@@ -63,17 +63,17 @@ protected:
         CASE(N = 1, a = {0}, b = {0});
         for (int i = 0; i < 5; i++) CASE(N = 10, random_array(a, N), random_array(b, N));
         for (int i = 0; i < 5; i++) CASE(N = 1000, random_array(a, N), random_array(b, N));
-        for (int i = 0; i < 5; i++) CASE(N = 1000000, random_array(a, N), random_array(b, N));
+        CASE(N = 1000000, random_array(a, N), random_array(b, N));
         
         for (int i = 0; i < 5; i++) CASE(N = 100, zero_heavy_array(a, N), random_array(b, N));
         for (int i = 0; i < 5; i++) CASE(N = 100, random_array(a, N), zero_heavy_array(b, N));
         for (int i = 0; i < 5; i++) CASE(N = 1000, zero_heavy_array(a, N), zero_heavy_array(b, N));
-        for (int i = 0; i < 5; i++) CASE(N = 1000000, zero_heavy_array(a, N), random_array(b, N));
-        for (int i = 0; i < 5; i++) CASE(N = 1000000, random_array(a, N), zero_heavy_array(b, N));
+        CASE(N = 1000000, zero_heavy_array(a, N), random_array(b, N));
+        CASE(N = 1000000, random_array(a, N), zero_heavy_array(b, N));
         
         for (int i = 0; i < 5; i++) CASE(N = 100, large_gap_array(a, b, N));
         for (int i = 0; i < 5; i++) CASE(N = 1000, large_gap_array(b, a, N));
-        for (int i = 0; i < 5; i++) CASE(N = 1000000, large_gap_array(a, b, N));
+        CASE(N = 1000000, large_gap_array(a, b, N));
         
     }
 
