@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{B - Beautriplet}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{B - Beautriplet} % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Lili memiliki dua buah array, yaitu array $A$ dan $B$. Kedua array tersebut adalah permutasi dengan $N$ bilangan. Karena Lili adalah orang yang ceroboh, kedua array tersebut tidak sengaja tercampur. Hasil campuran kedua array tersebut dinamakan $C$ dengan $2N$ buah elemen. 
+Lili menyukai \textbf{triplet cantik} dari array $C$ yang dimilikinya. Suatu triplet $(C_i, C_j, C_k)$ dari array $C$ disebut cantik jika dan hanya jika: 
+\begin{enumerate}
+    \item $1\le i<j<k\le N$
+    \item $C_i=C_k$
+\end{enumerate}
+Suatu triplet cantik $(C_i, C_j, C_k)$ akan memiliki nilai kecantikan $X$, yaitu $$X=C_i+C_j+C_k$$ Lili ingin mengetahui, berapakah jumlah nilai kecantikan dari seluruh triplet cantik \textbf{unik} yang berada pada array $C$?
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri dari satu bilangan bulat positif $N$ ($1\le N\le 10^5$), yang menyatakan banyak elemen array $A$ dan $B$.
+
+Baris kedua terdiri dari $2N$ buah bilangan bulat positif $C_i$ $(1 \leq C_i \leq 10^5, 1 \leq i \leq N)$, yang menyatakan elemen ke-$i$ dari array $C$, di mana $C$ merupakan gabungan dari dua permutasi.
+
+\subsection*{Format Keluaran}
+
+Keluarkan jumlah nilai kecantikan dari seluruh triplet cantik yang \textbf{unik}.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+3
+1 2 2 3 1 3
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+16
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Seluruh triplet cantik pada array $C$ adalah:
+\begin{enumerate}
+    \item $(1,2,1)$ dengan nilai kecantikan $X=1+2+1=4$
+    \item $(1,3,1)$ dengan nilai kecantikan $X=1+3+1=5$
+    \item $(3,1,3)$ dengan nilai kecantikan $X=3+1+3=7$
+\end{enumerate}
+Maka, jumlah nilai kecantikan dari seluruh triplet cantik unik adalah $X=4+5+7=16$.
+
+%
+%\subsection*{Penjelasan}
+%Subsection ini bersifat \textbf{opsional}. %Gunakan subsection ini jika problem dirasa %cukup kompleks atau ketika contoh yang %diberikan dirasa kurang jelas.
+%
+
+\end{document}
