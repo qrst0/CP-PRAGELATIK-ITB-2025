@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{A - Artefak Maple}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{A - Artefak Maple} % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Di dunia kuno Maple, terdapat sebuah artefak legendaris bernama \textit{Harmony Crystal}. Artefak ini diyakini memiliki kekuatan untuk menyeimbangkan dunia dengan menyerap energi dari suatu deretan angka.
+
+Suatu hari, seorang Penjaga Angka bernama Deculein menemukan sebuah gulungan kuno yang berisi sebuah deretan angka mistis. Deretan angka tersebut berisi $N$ buah bilangan bulat positif. Deculein harus menentukan total energi harmonis yang dapat diekstraksi dari angka-angka tersebut. Energi ini dihitung dengan mengambil semua subsekuens tak kosong dari larik, kemudian menjumlahkan faktor persekutuan terbesar (GCD) dari setiap subsekuens tersebut.
+
+Sayangnya, kekuatan \textit{Harmony Crystal} tidak bisa menangani jumlah yang terlalu besar. Karena itu, Deculein harus mengeluarkan hasilnya dalam bentuk modulo $10^9 + 7$. Dapatkah Anda membantu Deculein menyelesaikan tugas ini?
+
+\subsection*{Format Masukan}
+Baris pertama berisi bilangan bulat $N$ ($1 \leq N \leq  10^5 $), yaitu jumlah angka pada deretan mistis. 
+
+Baris kedua berisi $N$ buah bilangan bulat $a_{1}, a_{2}, \dots, a_{N} (1 \leq a_{i} \leq 10^6)$, yaitu angka-angka dalam deretan mistis tersebut.
+
+\subsection*{Format Keluaran}
+
+Keluarkan sebuah bilangan bulat, yaitu total energi harmonis yang dihitung dengan menjumlahkan semua GCD dari setiap subsekuens, dengan hasil modulo $10^9 + 7$.
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+3
+3 6 9
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+30
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Pada deretan angka $[3, 6, 9]$, semua subsekuen tak kosong yang mungkin adalah:
+
+\begin{itemize}
+    \item $[3] \rightarrow GCD = 3$
+    \item $[6] \rightarrow GCD = 6$
+    \item $[9] \rightarrow GCD = 9$
+    \item $[3, 6] \rightarrow GCD = 3$
+    \item $[3, 9] \rightarrow GCD = 3$
+    \item $[6, 9] \rightarrow GCD = 3$
+    \item $[3, 6, 9] \rightarrow GCD = 3$
+\end{itemize}
+
+Jadi, total GCD dari setiap subsekuens tak kosong adalah $3 + 6 + 9 + 3 + 3 + 3 + 3 = \textbf{30}$.
+\end{document}
