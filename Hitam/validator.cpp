@@ -14,25 +14,6 @@ const long double PRECISION = 1e-6;
 int main(int argc, char *argv[]) {
     ifstream tc_in(argv[1]);
     ifstream tc_out(argv[2]);
-
-    int n;
-    if (!(tc_in >> n)){
-        cout << "Cannot read N from input file";
-        return wa();
-    }
-    int a;
-    for (int i = 0; i < n; i++){
-        if (!(tc_in >> a)){
-            cout << "Cannot read A array elements";
-            return wa();
-        }
-    }
-    for (int i = 0; i < n; i++){
-        if (!(tc_in >> a)){
-            cout << "Cannot read B array elements";
-            return wa();
-        }
-    }
     
     long double ans;
     tc_out >> ans;
