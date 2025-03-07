@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{C - XOR and OR}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{D - Darwin and Dungeon} % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Suatu hari, Darwin sedang berpetualang ke dalam sebuah \textit{dungeon}. Saat hendak masuk ke dalam ruangan harta, seorang penjaga \textit{dungeon} menghalangi Darwin. Penjaga tersebut memberikan sebuah syarat agar Darwin dapat masuk ke dalam ruangan harta karun, yaitu menjawab $Q$ buah kueri yang diberikan dengan benar. 
+
+Untuk setiap kueri, Darwin akan diberikan dua buah bilangan bulat positif $L$ dan $R$ ($ 1 \le L \le R \le 10^{6} $). Tugas Darwin adalah menjawab banyak bilangan prima berbeda yang berada pada interval $[L, R]$. Sayangnya, Darwin sudah kelelahan setelah menghadapi banyak monster sehingga ia meminta bantuan Anda untuk menjawabnya.
+
+\subsection*{Format Masukan}
+Baris pertama berisi bilangan bulat $Q$ ($1 \leq N \leq  10^5 $) yang mewakili banyak kueri yang diberikan.
+
+Sebanyak $Q$ baris berikutnya berisi bilangan bulat $L$ dan $R$ ($ 1 \le L \le R \le 10^{6} $).
+
+\subsection*{Format Keluaran}
+
+Keluarkan $Q$ baris, dengan baris ke-$i$ menandakan jawaban dari kueri ke-$i$.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+2
+1 10
+11 15
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+4
+2
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Pada interval $[1, 10]$, terdapat 4 buah bilangan prima berbeda, yaitu $\{2, 3, 5, 7\}$.
+
+Pada interval $[11, 15]$, terdapat 2 buah bilangan prima berbeda, yaitu $\{11, 13\}$.
+
+\end{document}

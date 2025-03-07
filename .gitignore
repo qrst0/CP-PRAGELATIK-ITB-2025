@@ -55,3 +55,7 @@ Thumbs.db
 # Metadata #
 ############
 prob-metadata/
+
+statement.aux
+statement.fdb_latexmk
+statement.fls
