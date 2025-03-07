@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{[Kode Soal] - bbaakktteerrii}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{[Kode Soal] - bbaakktteerrii} % ganti judul soal
+    Batas Waktu : 1s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Di negeri Bojongsantos, kini terdapat \textit{n} jenis bakteri. Bakteri-bakteri ini memiliki perilaku unik tergantung pada musim di negeri yang ia tinggali. Di negeri ini, terdapat dua musim dalam satu tahun yaitu musim lato-lato dan musim jedag-jedug. Pada musim pertama, musim lato-lato setiap jumlah bakteri akan bertambah menjadi \textit{c}$_{i}$ kali lipat jumlahnya di awal tahun. Kemudian pada musim jedag-jedug ia akan bermutasi ke jenis paling muda yang lebih tua dari jenisnya sejumlah \textit{d}$_{i}$/\textit{c}$_{i}$ dari keseluruhan jumlahnya (jumlah setelah bertambah pada musim lato-lato). Pada musim ini, \textit{d}$_{i}$/\textit{c}$_{i}$ bagian bakteri yang paling tua akan gagal bermutasi dan mati. Jumlah keseluruhan dari tiap-tiap bakteri pada masa kini sedang dicari tahu oleh warga Bojongsantos. Namun jumlah yang mereka ketahui hanyalah jumlah awal kemunculan dari tiap jenis bakteri \textit{a}$_{i}$ ini dan umur dari jenis-jenis bakteri tersebut \textit{b}$_{i}$.
+
+Bantulah warga Bojongsantos menentukan jumlah dari tiap-tiap bakteri tersebut!
+
+\subsection*{Format Masukan}
+Baris pertama berisikan satu buah integer ($ 1 \leq \text{N} \leq 10 $)
+. Kemudian diikuti oleh N baris berikutnya dimana baris ke-i berisikan empat buah integer \textit{a}$_{i}$ \textit{b}$_{i}$ \textit{c}$_{i}$ \textit{d}$_{i}$ ($ 1 \leq a_{i},b_{i} \leq 10^{7}; 1 \leq c_{i} \leq 10^{3}; 0 \leq d_{i} \leq 10^{3}-1; d_{i} < c_{i}, b_{i} > b_{j} \text{ untuk setiap } i < j $)
+
+\subsection*{Format Keluaran}
+
+Keluarkan N baris berisi satu integer. Dimana integer pada baris ke-i menyatakan jumlah bakteri ke-i pada masa kini dimodulo dengan $10^{9}+7$.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+3
+1 5 3 1
+5 3 2 1
+10 2 1 0
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+67
+5
+10
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+%
+%\subsection*{Penjelasan}
+%
+%Penjelasan
+%
+
+%
+%\subsection*{Penjelasan}
+%Subsection ini bersifat \textbf{opsional}. %Gunakan subsection ini jika problem dirasa %cukup kompleks atau ketika contoh yang %diberikan dirasa kurang jelas.
+%
+
+\end{document}
