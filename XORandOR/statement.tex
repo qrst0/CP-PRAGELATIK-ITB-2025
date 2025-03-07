@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{C - XOR and OR}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{C - XOR and OR} % ganti judul soal
+    Batas Waktu : 3s \\  % ganti time limit
+    Batas Memori :  256MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Anda diberikan dua buah array $A$ dan $B$, keduanya dengan panjang $N$. Untuk sebuah set $S$ sehingga $S \subseteq \{1, \dots, N\}$, definisikan $P(S)$ sebagai set yang terbentuk dari seluruh $A_i$ sehingga $i \in S$. Definisikan juga $Q(S)$ sebagai set yang terbentuk dari seluruh $B_i$ sehingga $i \in S$. 
+
+Misal $T$ adalah sebuah set bilangan bulat positif. Definisikan $R(T)$ sebagai set bilangan positif yang dapat dibentuk dari bitwise XOR elemen himpunan $T$. Contoh, untuk $T = \{2, 3, 5 \}$, $R(T)= \{1,2,3,4,5,6,7\}$. 
+
+Misal $T$ adalah sebuah set bilangan positif. Definisikan $U(T)$ sebagai nilai bitwise OR dari seluruh elemen $T$. Contoh, untuk $T = \{2, 6, 7 \}$, $U(T)= 3$. 
+
+Anda akan diberikan $Q$ kueri. Untuk setiap kueri, Anda akan diberikan sebuah bilangan bulat positif $X$. Untuk setiap kueri, keluarkan nilai dari:
+\[
+  \min_{S \subseteq \{1, \dots, N \} \wedge X \in R(P(S))} U(Q(S))
+\]
+
+Jika tidak ada $S$ yang memenuhi, keluarkan -1.
+
+\subsection*{Format Masukan}
+Baris pertama berisi bilangan bulat $N$ ($1 \leq N \leq  10^5 $).
+
+Baris kedua berisi $N$ bilangan bulat yang menandakan array $A$ ($1 \leq A_i < 2^{14}$),
+
+Baris ketiga berisi $N$ bilangan bulat yang menandakan array $B$ ($1 \leq B_i < 2^{15}$).
+
+Baris keempat berisi bilangan bulat $Q$ ($1 \leq Q \leq 10^4$).
+
+Baris kelima berisi $Q$ bilangan bulat yang menandakan kueri $X$ ($1 \leq X_i < 2^{14}$). 
+
+\subsection*{Format Keluaran}
+
+Keluarkan $Q$ baris, dengan baris ke-$i$ menandakan jawaban dari kueri ke-$i$.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+3
+1 2 3
+6 5 4
+3
+2 3 1
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+5
+4
+5
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+
+
+\subsection*{Penjelasan}
+
+Untuk $X = 2$, set $S$ yang memberikan nilai OR terkecil adalah $S = \{2\}$. Begitu juga ketika $X = 3$, set $S$ yang memberikan nilai OR terkecil adalah $S = \{3\}$. Untuk $X = 1$, set paling optimal adalah $S = \{ 2, 3 \}$.
+
+\end{document}
