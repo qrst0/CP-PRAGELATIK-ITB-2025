@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{listings}
+\usepackage{geometry}
+\geometry{ a4paper, total={170mm,257mm}, top=10mm, right=20mm, bottom=20mm, left=20mm, headheight=67pt, includeheadfoot}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{zref-totpages}
+\usepackage{hyperref}
+\pagestyle{fancy}
+\usepackage{enumitem}
+\graphicspath{ {./assets/} }
+\hypersetup{ colorlinks=true, linkcolor=black, filecolor=magenta, urlcolor=cyan}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\setlist{nolistsep}
+\fancyhf{} 
+\fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
+\fancyfoot[L]{\textbf{G - Grididdy}}
+\fancyfoot[R]{\thepage} 
+
+\renewcommand{\headrulewidth}{0.4pt}
+\lstset{
+    basicstyle=\ttfamily\small,
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=2,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=none,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    prebreak={},
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    captionpos=t,
+    escapeinside={(\%}{\%)}
+}
+\begin{document}
+\begin{center}
+    \section*{G - Grididdy} % ganti judul soal
+    Batas Waktu : 3 s \\  % ganti time limit
+    Batas Memori :  512 MB \\ % ganti memory limit
+\end{center}
+
+\subsection*{Deskripsi}
+
+Ciran dan Miris sedang bermain dengan sebuah grid berukuran $N$ × $N$. Awalnya, setiap sel diwarnai putih atau hitam. Ciran ingin memperbanyak sel berwarna hitam, sementara Miris ingin memperbanyak sel berwarna putih. Permainan ini hanya berlangsung satu ronde. Pada gilirannya, pemain dapat memilih sebuah subgrid berukuran $K$ × $K$ ($1 \leq K \leq N$) dan membalik seluruh warna pada subgrid tersebut, dimana warna hitam menjadi putih dan warna putih menjadi warna hitam. Kedua pemain akan bermain secara optimal, selalu memilih langkah yang memaksimalkan peluang kemenangan mereka. Jika jumlah akhir sel berwarna hitam lebih banyak, Ciran menang. Sebaliknya, jika jumlah akhir sel berwarna putih lebih banyak, Miris menang. Jika jumlahnya sama, hasilnya adalah DRAW.
+
+\subsection*{Format Masukan}
+
+Baris pertama terdiri atas dua bilangan bulat $N$ dan $X$ ($1 \leq N \leq 10^3$, $X \in \{0,1\}$), dimana $N$ menyatakan ukuran grid dan $X$ menyatakan pemain yang mendapat giliran pertama. Jika $X = 0$, Miris yang akan bermain lebih dulu. Jika $X = 1$, Ciran akan bermain lebih dulu. 
+
+$N$ baris berikutnya terdiri atas $N$ buah angka, $0$ atau $1$, dimana $0$ merepresentasikan sel dengan warna putih dan $1$ merepresentasikan sel dengan warna hitam.
+
+\subsection*{Format Keluaran}
+
+Sebuah string yang merupakan nama pemenang sesuai hasil akhir permainan, atau "DRAW" jika tidak ada pemenang.
+\\
+
+\begin{multicols}{2}
+\subsection*{Contoh Masukan 1}
+\begin{lstlisting}
+5 1
+10001
+11011
+10101
+10101
+10001
+\end{lstlisting}
+\columnbreak
+\subsection*{Contoh Keluaran 1}
+\begin{lstlisting}
+MIRIS
+\end{lstlisting}
+\vfill
+\null
+\end{multicols}
+\pagebreak
+
+\subsection*{Penjelasan}
+
+Contoh salah satu skenario permainan: 
+
+Ciran bermain pertama, memilih subgrid $2$ × $2$ dengan posisi sudut kiri atas di (0,1), lalu membalik warna sel dalam area tersebut. 
+
+1\textcolor{red}{11}01\\
+1\textcolor{red}{01}11\\
+10101\\
+10101\\
+10001\\
+
+Setelah itu, Miris memilih subgrid $3$ × $3$ dengan posisi sudut kiri atas di (0,2), lalu membalik warna sel dalam area tersebut.
+
+11\textcolor{red}{010}\\
+10\textcolor{red}{000}\\
+10\textcolor{red}{010}\\
+10101\\
+10001\\
+
+Jumlah akhir sel berwarna putih = 14\\
+Jumlah akhir sel berwarna hitam = 11\\
+Karena jumlah akhir sel berwarna putih lebih banyak, Miris menang.
+
+Catatan: \\
+Contoh berikut menunjukkan salah satu kemungkinan jalannya permainan, mungkin saja tidak mencerminkan strategi optimal dari kedua pemain.
+
+\end{document}
