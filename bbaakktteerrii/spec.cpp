@@ -81,62 +81,60 @@ protected:
 
     void TestCases() {
         // Test case 1: Minimum constraints
-        CASE(N = 1,
-             A = {1},
-             B = {1},
-             C = {1},
-             D = {0});
+        CASE(generateMinimumTest());
         
         // Test case 2: Maximum N with simple values
-        CASE(N = 10,
-             generateSimpleTestCase(10));
+        CASE(generateSimpleTestCase(10));
         
         // Test case 3: Maximum values
-        CASE(N = 10,
-             generateMaxValueTestCase());
+        CASE(generateMaxValueTestCase());
         
         // Test case 4: Random small test
-        CASE(N = 5,
-             generateRandomTestCase(5, 1, 100, 1, 100, 1, 10, 0, 5));
+        CASE(generateRandomTestCase(5, 1, 100, 1, 100, 1, 10, 0, 5));
         
         // Test case 5: Random medium test
-        CASE(N = 8,
-             generateRandomTestCase(8, 1000, 10000, 1000, 10000, 10, 100, 5, 50));
+        CASE(generateRandomTestCase(8, 1000, 10000, 1000, 10000, 10, 100, 5, 50));
         
         // Test case 6: Random large test
-        CASE(N = 10,
-             generateRandomTestCase(10, 1000000, 10000000, 1000000, 10000000, 100, 1000, 10, 900));
+        CASE(generateRandomTestCase(10, 1000000, 10000000, 1000000, 10000000, 100, 1000, 10, 900));
         
         // Test case 7: Edge case with all D = 0 (no mutation)
-        CASE(N = 7,
-             generateTestCaseWithAllDZero(7));
+        CASE(generateTestCaseWithAllDZero(7));
         
         // Test case 8: Edge case with all D = C-1 (maximum mutation)
-        CASE(N = 6,
-             generateTestCaseWithMaxMutation(6));
+        CASE(generateTestCaseWithMaxMutation(6));
         
         // Test case 9: Mixed edge cases
-        CASE(N = 9,
-             generateMixedEdgeCaseTest(9));
+        CASE(generateMixedEdgeCaseTest(9));
         
         // Test case 10: Another random test
-        CASE(N = 4,
-             generateRandomTestCase(4, 5000, 50000, 5000, 50000, 50, 500, 10, 400));
+        CASE(generateRandomTestCase(4, 5000, 50000, 5000, 50000, 50, 500, 10, 400));
     }
 
 private:
-    vector<int> A, B, C, D;
     
-    void generateSimpleTestCase(int n) {
-        for (int i = 0; i < n; i++) {
+    void generateMinimumTest() {
+        N = 1;
+        A = {1};
+        B = {1};
+        C = {1};
+        D = {0};
+    }
+    
+    void generateSimpleTestCase(int size) {
+        N = size;
+        
+        for (int i = 0; i < size; i++) {
             A.push_back(10 + i);
-            B.push_back(n*2 - i*2);  // Ensuring B is in descending order
+            B.push_back(size*2 - i*2);  // Ensuring B is in descending order
             C.push_back(2);
             D.push_back(1);
         }
     }
     
     void generateMaxValueTestCase() {
+        N = 10;
+        
         for (int i = 0; i < 10; i++) {
             A.push_back(10000000);
             B.push_back(10000000 - i * 1000000);  // Ensuring B is in descending order
@@ -145,17 +143,19 @@ private:
         }
     }
     
-    void generateRandomTestCase(int n, int minA, int maxA, int minB, int maxB, int minC, int maxC, int minD, int maxD) {
+    void generateRandomTestCase(int size, int minA, int maxA, int minB, int maxB, int minC, int maxC, int minD, int maxD) {
+        N = size;
+        
         // Generate ages in descending order
         vector<int> ages;
         int currentAge = maxB;
-        for (int i = 0; i < n; i++) {
-            int ageGap = rnd.nextInt(1, (currentAge - minB) / (n - i) + 1);
+        for (int i = 0; i < size; i++) {
+            int ageGap = rnd.nextInt(1, (currentAge - minB) / (size - i) + 1);
             currentAge -= ageGap;
             ages.push_back(currentAge + ageGap);
         }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             A.push_back(rnd.nextInt(minA, maxA));
             B.push_back(ages[i]);
             C.push_back(rnd.nextInt(minC, maxC));
@@ -163,14 +163,16 @@ private:
         }
     }
     
-    void generateTestCaseWithAllDZero(int n) {
+    void generateTestCaseWithAllDZero(int size) {
+        N = size;
+        
         // Generate ages in descending order
         vector<int> ages;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             ages.push_back(10000000 - i * 1000000);
         }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             A.push_back(rnd.nextInt(1, 10000000));
             B.push_back(ages[i]);
             C.push_back(rnd.nextInt(1, 1000));
@@ -178,14 +180,16 @@ private:
         }
     }
     
-    void generateTestCaseWithMaxMutation(int n) {
+    void generateTestCaseWithMaxMutation(int size) {
+        N = size;
+        
         // Generate ages in descending order
         vector<int> ages;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             ages.push_back(10000000 - i * 1000000);
         }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             A.push_back(rnd.nextInt(1, 10000000));
             B.push_back(ages[i]);
             C.push_back(rnd.nextInt(2, 1000));  // Ensure C > 1
@@ -193,14 +197,16 @@ private:
         }
     }
     
-    void generateMixedEdgeCaseTest(int n) {
+    void generateMixedEdgeCaseTest(int size) {
+        N = size;
+        
         // Generate ages in descending order
         vector<int> ages;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             ages.push_back(10000000 - i * 1000000);
         }
         
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < size; i++) {
             A.push_back(rnd.nextInt(1, 10000000));
             B.push_back(ages[i]);
             
