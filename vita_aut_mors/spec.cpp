@@ -56,7 +56,7 @@ class TestSpec : public BaseTestSpec<ProblemSpec> {
                 "5 2 5",
             });
             Output({
-                "10"
+                "12"
             });
         }
     

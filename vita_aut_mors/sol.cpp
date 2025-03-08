@@ -59,6 +59,7 @@ signed main() {
       radiation[i][j] = rotated_radiation[posx][posy];
     }
   }
+  
 
   int l = 1, r = 1e18, ans = -1;
   while (l <= r) {
@@ -68,8 +69,13 @@ signed main() {
     memset(dis, -1, sizeof(dis));
 
     queue<tuple<int, int, int>> q;
-    q.push({1, 1, mid});
+    q.push({1, 1, mid - radiation[1][1]});
     dis[1][1] = mid - radiation[1][1];
+
+    if (dis[1][1] <= 0) {
+      l = mid+1;
+      continue;
+    }
 
     while (!q.empty()) {
       auto [x, y, curHp] = q.front();

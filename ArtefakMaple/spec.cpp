@@ -59,31 +59,31 @@ protected:
 
     void TestCases() {
         for (int i = 0; i < 5; i++) {
-            randomQuery(10, MAXVAL);
+            CASE(randomQuery(10, MAXVAL));
         }
         for (int i = 0; i < 5; i++) {
-            randomQuery(100, MAXVAL);
+            CASE(randomQuery(100, MAXVAL));
         }
         for (int i = 0; i < 5; i++) {
-            randomQuery(1000, MAXVAL);
+            CASE(randomQuery(1000, MAXVAL));
         }
         for (int i = 0; i < 5; i++) {
-            randomQuery(10000, MAXVAL);
+            CASE(randomQuery(10000, MAXVAL));
         }
         for (int i = 0; i < 20; i++) {
-            randomQuery(100000, MAXVAL);
+            CASE(randomQuery(100000, MAXVAL));
         }
         for (int i = 0; i < 5; i++) {
-            randomQueryK(100000, MAXVAL, 2);
+            CASE(randomQueryK(100000, MAXVAL, 2));
         }
         for (int i = 0; i < 5; i++) {
-            randomQueryK(100000, MAXVAL, 3);
+            CASE(randomQueryK(100000, MAXVAL, 3));
         }
         for (int i = 0; i < 5; i++) {
-            randomQueryK(100000, MAXVAL, 4);
+            CASE(randomQueryK(100000, MAXVAL, 4));
         }
         for (int i = 0; i < 5; i++) {
-            randomQueryK(100000, MAXVAL, 5);
+            CASE(randomQueryK(100000, MAXVAL, 5));
         }
     }
 

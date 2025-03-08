@@ -18,7 +18,7 @@
 \setlist{nolistsep}
 \fancyhf{} 
 \fancyhead[C]{\hspace*{\fill}\includegraphics[height=62pt]{header.png}\hspace*{\fill}}
-\fancyfoot[L]{\textbf{[Cadangan] - [Vita aut Mors]}}
+\fancyfoot[L]{\textbf{J- Vita aut Mors}}
 \fancyfoot[R]{\thepage} 
 
 \renewcommand{\headrulewidth}{0.4pt}
@@ -42,7 +42,7 @@
 }
 \begin{document}
 \begin{center}
-    \section*{[Cadangan] - [Vita aut Mors]} % ganti judul soal
+    \section*{J - Vita aut Mors} % ganti judul soal
     Batas Waktu : 2s \\  % ganti time limit
     Batas Memori :  256MB \\ % ganti memory limit
 \end{center}
@@ -53,20 +53,20 @@ Di suatu pagi yang cerah, anda tiba tiba tertubruk truk saat menyebrangi jalan, 
 
 Tugas pertama anda adalah untuk terbiasa dengan bahaya dari dunia ini. Dunia tersebut bisa direpresentasikan sebagai grid 2 dimensi. Anda saat ini berada di grid $(1, 1)$ dan harus menuju ke grid $(r, c)$. Dalam satu gerakan, anda bisa bergerak ke $1$ petak yang bersebelahan. \textit{i.e}. jika anda berada di posisi $(i, j)$, anda dapat bergerak ke posisi $(i+1, j)$, $(i-1, j)$, $(i, j+1)$, $(i, j-1)$, selama koordinat tersebut adalah grid yang valid.
 
-Akan tetapi, perjalanan tidak semudah itu, ada K buah \textit{mana-stone} yang memancarkan radiasi mana intensitas tinggi. \textit{Mana stone} ke-i berada di posisi $(x_i, y_i)$ serta memiliki intensitas $D_i$, semua petak dengan jarak manhattan kurang dari atau sama dengan $D_i$ akan terdampak oleh radiasi mana stone tersebut. Jika anda berada di petak $(i, j)$, dan terdapat $X$ buah mana stone yang radiasinya menjangkau petak $(i, j)$, anda akan terkena damage sebesar $X$. Jika anda berada di petak $(i, j)$ yang tidak terdampak oleh radiasi, maka anda bisa memulihkan HP anda menuju HP Maksimum. Anda akan mati jika HP anda menjadi kurang dari sama dengan $0$. Perhatikan bahwa anda bisa saja sudah mendapat damage saat awal perjalanan
+Akan tetapi, perjalanan tidak semudah itu, ada K buah \textit{mana-stone} yang memancarkan radiasi mana intensitas tinggi. \textit{Mana stone} ke-i berada di posisi $(x_i, y_i)$ serta memiliki intensitas $D_i$, semua petak dengan jarak manhattan kurang dari atau sama dengan $D_i$ akan terdampak oleh radiasi mana stone tersebut. Jika anda berada di petak $(i, j)$, dan terdapat $X$ buah mana stone yang radiasinya menjangkau petak $(i, j)$, anda akan terkena damage sebesar $X$. Jika anda berada di petak $(i, j)$ yang tidak terdampak oleh radiasi, maka anda bisa beristirahat dan memulihkan HP anda menuju MaxHP. Anda akan mati jika HP anda menjadi kurang dari sama dengan $0$. Perhatikan bahwa anda bisa saja sudah mendapat damage saat awal perjalanan
 
-Dewa isekai tidak sejahat itu, sehingga sebelum anda memulai perjalanan anda, dewa tersebut memberikan anda pilihan untuk mengatur stat anda. Tentunya, anda ingin mengalokasikan poin ke stats yang lain. Tentukan minimal HP Maksimum yang perlu anda pilih agar anda bisa menyelesaikan misi pertama anda dengan selamat.
+Dewa isekai tidak sejahat itu, sebelum anda memulai perjalanan anda, dewa tersebut memberikan anda pilihan untuk mengatur stats anda. Tentunya, anda ingin mengalokasikan poin ke stats yang lain. Tentukan minimal MaxHP yang perlu anda pilih agar anda bisa menyelesaikan misi pertama anda dengan selamat.
 
 Jarak Manhattan adalah jarak antara dua titik yang dihitung dengan menjumlahkan selisih absolut koordinat kedua titik tersebut. Jarak manhattan dari koordinat $(x_1, y_1)$ dengan $(x_2, y_2)$ adalah $|x_1 - x_2| + |y_1 - y_2|$
 
 \subsection*{Format Masukan}
 
-Baris pertama berisi 3 buah bilangan $N, M, K$, yang menyatakan banyak baris, banyak kolom serta banyaknya \textit{mana stone}. 
+Baris pertama berisi 3 buah bilangan $N, M, K$ ($2 \leq N, M \leq 10^3, 0 \leq K \leq 10^5$), yang menyatakan banyak baris, banyak kolom serta banyaknya \textit{mana stone}. 
 
-K Baris berikutnya berisi 3 buah bilangan $x_i, y_i, D_i$, yaitu posisi dan intensitas dari \textit{mana stone} ke-$i$.
+K Baris berikutnya berisi 3 buah bilangan $x_i, y_i, D_i$ ($1 \leq x_i \leq N, 1 \leq y_i \leq M, 1 \leq D_i \leq N+M$), yaitu posisi dan intensitas dari \textit{mana stone} ke-$i$.
 
 \subsection*{Format Keluaran}
-Keluarkan bilangan bulat yang merupakan minimal HP Maksimum yang perlu anda pilih agar anda bisa menyelesaikan misi pertama anda dengan selamat.
+Keluarkan bilangan bulat yang merupakan minimal MaxHP yang perlu anda pilih agar anda bisa menyelesaikan misi pertama anda dengan selamat.
 
 
 \begin{multicols}{2}
@@ -80,7 +80,7 @@ Keluarkan bilangan bulat yang merupakan minimal HP Maksimum yang perlu anda pili
 \columnbreak
 \subsection*{Contoh Keluaran 1}
 \begin{lstlisting}
-10
+12
 \end{lstlisting}
 \vfill
 \null
